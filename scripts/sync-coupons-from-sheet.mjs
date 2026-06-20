@@ -2,8 +2,9 @@
  * Pull coupon data from Google Sheets → coupons-data.js (+ sitemap.xml).
  *
  * Sheet columns (current layout):
- *   Brand | URL | Coupon code | Status | Countries | Code logic
+ *   Brand | Brand (Arabic) | URL | Coupon code | Status | Countries | Code logic
  *
+ * Legacy 6-column sheets (no Arabic column) still work.
  * Requires readable export (link sharing → Viewer is enough for gviz CSV).
  *
  * Usage:
@@ -23,7 +24,7 @@ const OUT_PATH = join(ROOT, "coupons-data.js");
 const CPANEL_NAMES_PATH = join(__dirname, "cpanel-brand-names.json");
 
 const SHEET_ID =
-  process.env.ATMAD_SHEET_ID || "1Vl31XJ3JVXW87IZq4NFI3mtO0LtXDXTvg8eo8lxWN5o";
+  process.env.ATMAD_SHEET_ID || "1v7QJIHRRaHiAela9PmC_e4igmUiQT6mJFn8zNOdJ-ho";
 const SHEET_GID = process.env.ATMAD_SHEET_GID || "0";
 const CHECK_ONLY = process.argv.includes("--check");
 const INCLUDE_PAUSED = process.argv.includes("--include-paused");
@@ -111,6 +112,120 @@ function applyCpanelDisplay(item, sheetBrand) {
   item.titleEn = d.titleEn;
   item.titleAr = d.titleAr;
   return item;
+}
+
+function codeKey(code) {
+  const tokens = codeTokens(code);
+  return tokens.length ? tokens.slice().sort().join("|") : polishCodeKey(code);
+}
+
+function polishCodeKey(code) {
+  return String(code || "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function itemDedupeKey(item) {
+  return `${normBrand(item.titleEn)}|${codeKey(item.code)}`;
+}
+
+function itemRichness(item) {
+  let score =
+    String(item.discountEn || "").length +
+    String(item.descEn || "").length +
+    String(item.metaEn || "").length;
+  const code = String(item.code || "").trim();
+  const disc = String(item.discountEn || "").trim();
+  if (code && disc && code.toLowerCase() === disc.toLowerCase()) score -= 40;
+  if (/\(see details\)/i.test(code)) score -= 30;
+  if (/https?:\/\//i.test(item.metaEn || "")) score += 15;
+  if (String(item.discountEn || "").length > 20) score += 10;
+  return score;
+}
+
+function pickRicherField(a, b) {
+  const sa = String(a || "");
+  const sb = String(b || "");
+  if (!sa || sa === "—") return sb || sa;
+  if (!sb || sb === "—") return sa;
+  return sb.length > sa.length ? sb : sa;
+}
+
+function mergeCouponCodeStrings(a, b) {
+  const order = [];
+  const seen = new Set();
+  const push = (raw) => {
+    const t = String(raw || "").trim();
+    if (!t) return;
+    const k = t.replace(/\s+/g, "").toLowerCase();
+    if (seen.has(k)) return;
+    seen.add(k);
+    order.push(t);
+  };
+  String(a || "")
+    .split(/\s*\/\s*|\s*&\s*/i)
+    .forEach(push);
+  String(b || "")
+    .split(/\s*\/\s*|\s*&\s*/i)
+    .forEach(push);
+  return order.length ? order.join(" / ") : polishText(a || b || "");
+}
+
+function polishText(s) {
+  return String(s ?? "").trim();
+}
+
+function mergeDuplicateItems(primary, incoming) {
+  const pick = (a, b) => ((b || "").length > (a || "").length ? b : a);
+  return {
+    badgeEn: primary.badgeEn,
+    badgeAr: primary.badgeAr,
+    titleEn: pick(primary.titleEn, incoming.titleEn),
+    titleAr: pick(primary.titleAr, incoming.titleAr),
+    descEn: pickRicherField(primary.descEn, incoming.descEn),
+    descAr: pickRicherField(primary.descAr, incoming.descAr),
+    discountEn: pickRicherField(primary.discountEn, incoming.discountEn),
+    discountAr: pickRicherField(primary.discountAr, incoming.discountAr),
+    metaEn: pickRicherField(primary.metaEn, incoming.metaEn),
+    metaAr: pickRicherField(primary.metaAr, incoming.metaAr),
+    code: mergeCouponCodeStrings(primary.code, incoming.code),
+  };
+}
+
+/** Collapse repeated sheet rows that share the same brand + coupon code(s). */
+function dedupeItems(items) {
+  const byKey = new Map();
+  const order = [];
+
+  for (const item of items) {
+    const key = itemDedupeKey(item);
+    if (!byKey.has(key)) {
+      byKey.set(key, { ...item });
+      order.push(key);
+      continue;
+    }
+    const prev = byKey.get(key);
+    const merged = mergeDuplicateItems(prev, item);
+    byKey.set(key, merged);
+  }
+
+  return order.map((key) => byKey.get(key));
+}
+
+function dedupeCountryRows(rows) {
+  const seen = new Set();
+  const out = [];
+  for (const row of rows) {
+    const brand = String(row[0] || "").trim();
+    const code = String(row[1] || "").trim();
+    const countries = String(row[2] || "").trim();
+    const key = `${normBrand(brand)}|${codeKey(code)}|${countries.toLowerCase()}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push([brand, code, countries]);
+  }
+  return out;
 }
 
 function csvUrl(gid) {
@@ -204,11 +319,88 @@ function linkFirst(text) {
 
 function isHeaderRow(row) {
   const a = row[0].toLowerCase();
-  return a.includes("advertiser name") || a === "brand" || a === "brand name";
+  return (
+    a.includes("advertiser name") ||
+    a === "brand" ||
+    a.startsWith("brand name")
+  );
 }
 
-function itemFromUnifiedRow(brand, website, code, status, countries, discount) {
+/** @returns {{ brand:number, brandAr:number, website:number, code:number, status:number, countries:number, discount:number, hasArabicCol:boolean }} */
+function detectSheetLayout(rows) {
+  const legacy = {
+    brand: 0,
+    brandAr: -1,
+    website: 1,
+    code: 2,
+    status: 3,
+    countries: 4,
+    discount: 5,
+    hasArabicCol: false,
+  };
+
+  for (const raw of rows) {
+    const row = normRow(raw, 8);
+    if (!isHeaderRow(row)) continue;
+
+    const headers = row.map((h) => trimCell(h).toLowerCase());
+    const arIdx = headers.findIndex(
+      (h) =>
+        h.includes("arabic") ||
+        h.includes("عرب") ||
+        h.includes("اسم العلامة") ||
+        h === "brand (arabic)" ||
+        h === "brand name (arabic)"
+    );
+    if (arIdx < 0) return legacy;
+
+    const col = (pred, fallback) => {
+      const i = headers.findIndex(pred);
+      return i >= 0 ? i : fallback;
+    };
+
+    return {
+      brand: 0,
+      brandAr: arIdx,
+      website: col(
+        (h) => h.includes("website") || h.includes("url") || h.includes("app"),
+        arIdx === 1 ? 2 : 1
+      ),
+      code: col(
+        (h) => h.includes("coupon") || h === "code",
+        arIdx === 1 ? 3 : 2
+      ),
+      status: col((h) => h === "status", arIdx === 1 ? 4 : 3),
+      countries: col((h) => h.includes("countr"), arIdx === 1 ? 5 : 4),
+      discount: col(
+        (h) =>
+          h.includes("discount") ||
+          h.includes("code logic") ||
+          h.includes("detail"),
+        arIdx === 1 ? 6 : 5
+      ),
+      hasArabicCol: true,
+    };
+  }
+
+  return legacy;
+}
+
+function pickCol(row, idx) {
+  return idx >= 0 ? row[idx] : "";
+}
+
+function itemFromUnifiedRow(
+  brand,
+  brandAr,
+  website,
+  code,
+  status,
+  countries,
+  discount
+) {
   brand = trimCell(brand);
+  brandAr = trimCell(brandAr);
   website = trimCell(website);
   code = trimCell(code);
   status = trimCell(status);
@@ -235,12 +427,13 @@ function itemFromUnifiedRow(brand, website, code, status, countries, discount) {
   const metaEn = metaParts.length ? metaParts.join(" · ") : "—";
   const codeDisp = code || "(See details)";
   const shortDisc = discount ? truncate(discount, 140) : codeDisp;
+  const titleAr = brandAr || brand;
 
   return {
     badgeEn: badge,
     badgeAr,
     titleEn: brand,
-    titleAr: brand,
+    titleAr,
     descEn: desc,
     descAr: desc,
     discountEn: shortDisc,
@@ -282,19 +475,28 @@ async function fetchCsv(gid) {
 }
 
 function parseUnifiedSheet(rows) {
+  const layout = detectSheetLayout(rows);
   const items = [];
   const countryRows = [];
   const seenCountry = new Set();
 
   for (let i = 0; i < rows.length; i++) {
-    const row = normRow(rows[i], 6);
+    const row = normRow(rows[i], 8);
     if (isHeaderRow(row)) continue;
 
-    const [brand, website, code, status, countries, discount] = row;
+    const brand = pickCol(row, layout.brand);
+    const brandAr = pickCol(row, layout.brandAr);
+    const website = pickCol(row, layout.website);
+    const code = pickCol(row, layout.code);
+    const status = pickCol(row, layout.status);
+    const countries = pickCol(row, layout.countries);
+    const discount = pickCol(row, layout.discount);
+
     if (!trimCell(brand) && !trimCell(code)) continue;
 
     const item = itemFromUnifiedRow(
       brand,
+      brandAr,
       website,
       code,
       status,
@@ -302,24 +504,39 @@ function parseUnifiedSheet(rows) {
       discount
     );
     if (item) {
-      applyCpanelDisplay(item, brand);
+      if (!layout.hasArabicCol) applyCpanelDisplay(item, brand);
       items.push(item);
     }
 
-    const b = trimCell(brand);
+    const b = trimCell(item?.titleEn || brand);
     const c = trimCell(code);
     const co = trimCell(countries);
     if (b && c && co) {
-      const display = resolveCpanelDisplay(b, c);
-      const key = `${display.titleEn.toLowerCase()}|${c.toLowerCase()}|${co.toLowerCase()}`;
+      const key = `${b.toLowerCase()}|${c.toLowerCase()}|${co.toLowerCase()}`;
       if (!seenCountry.has(key)) {
         seenCountry.add(key);
-        countryRows.push([display.titleEn, c, co]);
+        countryRows.push([b, c, co]);
       }
     }
   }
 
-  return { items, countryRows };
+  return { items, countryRows, layout };
+}
+
+function dedupeParsed(items, countryRows) {
+  const beforeItems = items.length;
+  const beforeCountry = countryRows.length;
+  const dedupedItems = dedupeItems(items);
+  const dedupedCountry = dedupeCountryRows(countryRows);
+  const removedItems = beforeItems - dedupedItems.length;
+  const removedCountry = beforeCountry - dedupedCountry.length;
+  if (removedItems > 0 || removedCountry > 0) {
+    console.log(
+      `Deduped: removed ${removedItems} coupon row(s)` +
+        (removedCountry ? `, ${removedCountry} country tag row(s)` : "")
+    );
+  }
+  return { items: dedupedItems, countryRows: dedupedCountry };
 }
 
 function buildCouponsDataJs(countryRows, sheets) {
@@ -345,7 +562,8 @@ function buildCouponsDataJs(countryRows, sheets) {
 async function main() {
   console.log(`Fetching sheet ${SHEET_ID} (gid=${SHEET_GID})…`);
   const rows = await fetchCsv(SHEET_GID);
-  const { items, countryRows } = parseUnifiedSheet(rows);
+  const parsed = parseUnifiedSheet(rows);
+  const { items, countryRows } = dedupeParsed(parsed.items, parsed.countryRows);
 
   const sheets = [
     {
@@ -355,10 +573,15 @@ async function main() {
     },
   ];
 
+  const layoutNote = parsed.layout.hasArabicCol
+    ? " · Arabic names from sheet"
+    : existsSync(CPANEL_NAMES_PATH)
+      ? " · cPanel names applied (legacy 6-col sheet)"
+      : "";
   console.log(
     `Parsed: ${items.length} active coupons, ${countryRows.length} country tag rows` +
       (INCLUDE_PAUSED ? " (including paused)" : " (paused excluded)") +
-      (existsSync(CPANEL_NAMES_PATH) ? " · cPanel names applied" : "")
+      layoutNote
   );
 
   if (CHECK_ONLY) {

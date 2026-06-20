@@ -1,0 +1,163 @@
+/**
+ * Normalized brand label → domain (used to resolve logo URLs; no API key).
+ * Optional: hostname → image URL(s). Use string or string[]; /assets/… is rewritten for file:// and pretty URLs.
+ * Example: window.ATMAD_BRAND_LOGO_BY_DOMAIN = { "example.com": "https://…/logo.png" };
+ */
+window.ATMAD_BRAND_LOGO_BY_DOMAIN = {
+  "keeta-global.com": [
+    "/assets/brand/keeta-logo.png",
+    "/assets/brand/keeta-logo.svg"
+  ],
+  "parisgallery.ae":
+    "https://parisgallery.ae/cdn/shop/files/Niche_Gallery_page-0001.jpg?v=1737898128&width=600",
+  /** Official mark from store JSON-LD; Clearbit often misses regional subdomains. */
+  "abdulsamadalqurashi.com":
+    "https://cdn.salla.sa/ydzxba/w4wHZ4AvB82NDJ3dppJV8ACottElknm6hh45goz6.jpg",
+  "ae.abdulsamadalqurashi.com":
+    "https://cdn.salla.sa/ydzxba/w4wHZ4AvB82NDJ3dppJV8ACottElknm6hh45goz6.jpg"
+};
+
+window.ATMAD_LEGACY_BRAND_SLUG = {
+  vogacloet: "vogacloset",
+  "doctor-nutrition": "dr-nutrition",
+  almaithly: "almaithali"
+};
+
+/** Keys from normalizeBrandKey(title); values: canonical English display for cards and SEO. */
+window.ATMAD_BRAND_DISPLAY = {
+  en: {
+    blends: "Blends",
+    "doctor nutrition": "Dr Nutrition",
+    "dr nutrition": "Dr Nutrition",
+    vogacloet: "Vogacloset",
+    vogacloset: "Vogacloset",
+    almaithly: "Almaithali",
+    almaithaly: "Almaithali",
+    almaithali: "Almaithali"
+  },
+  ar: {
+    blends: "Blends",
+    "doctor nutrition": "Dr Nutrition",
+    "dr nutrition": "Dr Nutrition",
+    vogacloet: "Vogacloset",
+    vogacloset: "Vogacloset",
+    almaithly: "Almaithali",
+    almaithaly: "Almaithali",
+    almaithali: "Almaithali"
+  }
+};
+
+window.ATMAD_BRAND_DOMAINS = {
+  "6th street": "6thstreet.com",
+  "800 flowers": "800flower.ae",
+  ace: "aceuae.com",
+  "ace hardware": "aceuae.com",
+  adidas: "adidas.com",
+  airalo: "airalo.com",
+  allbirds: "allbirds.com",
+  almaithali: "almathali.ae",
+  almaithaly: "almathali.ae",
+  almaithly: "almathali.ae",
+  "al shayaa group": "alshaya.com",
+  "alshayaa group": "alshaya.com",
+  almatar: "almatar.com",
+  asq: "asq.org",
+  asos: "asos.com",
+  "beauty bay": "beautybay.com",
+  beluar: "beluar-fr.com",
+  bloomingdales: "bloomingdales.ae",
+  "brands for less": "brandsforless.ae",
+  blends: "blendshome.com",
+  "bath & body works": "bathandbodyworks.ae",
+  crocs: "crocs.com",
+  "center point": "centrepointstores.com",
+  centrepoint: "centrepointstores.com",
+  circle: "circle.com",
+  dabdoob: "dabdoob.com",
+  dabubehome: "danubehome.com",
+  "danube home": "danubehome.com",
+  "danube home llc": "danubehome.com",
+  "damas jewellery": "damasjewellery.com",
+  "damas jewellery llc": "damasjewellery.com",
+  "al dakheel oud": "jo.aldakheeloud.com",
+  delicut: "delicut.ae",
+  delivroo: "deliveroo.ae",
+  "doctor nutrition": "drnutrition.com",
+  "dr nutrition": "drnutrition.com",
+  dyson: "dyson.com",
+  eyewa: "eyewa.com",
+  firstcry: "firstcry.com",
+  flyin: "flyintravel.me",
+  gap: "gap.com",
+  gosport: "gosportme.com",
+  hauwei: "huawei.com",
+  hungerstation: "hungerstation.com",
+  iherb: "iherb.com",
+  izil: "izilbeauty.com",
+  jeeny: "jeeny.me",
+  "jetpac global": "jetpacglobal.com",
+  jomla: "jomlah.com",
+  keeta: "keeta-global.com",
+  "kafarat plus": "kafaratplus.com",
+  kenzwoman: "kenzwoman.com",
+  kiabi: "kiabi.com",
+  "kiko milano": "kikocosmetics.com",
+  kudu: "kudu.com.sa",
+  lego: "lego.com",
+  lg: "lg.com",
+  "level shoes": "levelshoes.com",
+  magrabi: "magrabi.com",
+  maje: "maje.com",
+  "max fashion": "maxfashion.com",
+  mumzworld: "mumzworld.com",
+  namshi: "namshi.com",
+  nana: "nana.sa",
+  naseem: "naseem.com",
+  next: "next.sa",
+  nice: "nice.com",
+  "noon egypt": "noon.com",
+  "noon gcc": "noon.com",
+  "noon minutes": "noon.com",
+  nownow: "noon.com",
+  "now now": "noon.com",
+  "abdul samad al qurashi": "ae.abdulsamadalqurashi.com",
+  osma: "osmaperfumes.com",
+  "paris gallery": "parisgallery.ae",
+  "petzone app": "petzone.com",
+  platinumlist: "platinumlist.com",
+  puma: "puma.com",
+  rasees: "rasees.com",
+  "rashof natural honey": "rashof.com",
+  "reef perfumes": "reefperfumes.com",
+  "right bite": "rightbite.com",
+  sandro: "sandro.ae",
+  samsung: "samsung.com",
+  shein: "shein.com",
+  "shark ninja": "sharkninja.com",
+  "shark ninja promote code with link": "sharkninja.com",
+  skyo: "skyo.io",
+  sporter: "sporter.com",
+  splash: "splashfashions.com",
+  squatwolf: "squatwolf.com",
+  storeus: "storeus.com",
+  "sun & sand sports": "sunandsports.com",
+  "sun and sand sports": "sunandsports.com",
+  swarovski: "swarovski.com",
+  talabat: "talabat.com",
+  "the body shop": "thebodyshop.com",
+  thebodyshop: "thebodyshop.com",
+  "the bodyshop": "thebodyshop.com",
+  "the body shop": "thebodyshop.com",
+  "the bodyshop ksa and uae": "thebodyshop.com",
+  toyou: "toyou.io",
+  "under armour": "underarmour.com",
+  underarmour: "underarmour.com",
+  underhance: "underhance.com",
+  vogacloset: "vogacloset.com",
+  vogacloet: "vogacloset.com",
+  viu: "viu.com",
+  waya: "waya.travel",
+  "yango drive": "yango.com",
+  bershka: "bershka.com",
+  aldo: "aldoshoes.com"
+};

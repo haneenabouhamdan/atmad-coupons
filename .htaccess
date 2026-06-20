@@ -1,0 +1,47 @@
+# Atmad coupons — pretty URLs (/brand-slug). Upload to the same folder as index.html.
+# Merge with your host: keep your HTTPS / PHP blocks; avoid duplicate HTTPS rules.
+
+DirectoryIndex index.html index.php
+
+# Video/audio MIME types (some shared hosts serve .mp4 as application/octet-stream → blank player)
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+  AddType video/webm .webm
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# HTTPS (skip if your host already enforces SSL)
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Serve real files as-is (atmad.css, JS, images — never send them through brand/blog rewrites)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Old links: /brand.html?brand=my-slug → 301 to /my-slug
+RewriteCond %{QUERY_STRING} ^brand=([a-z0-9-]+)$
+RewriteRule ^brand\.html$ /%1? [R=301,L]
+
+# Friendly paths (optional — use these or the .html URLs directly)
+RewriteRule ^blog/?$ blog.html [L]
+RewriteRule ^about/?$ about.html [L]
+RewriteRule ^contact/?$ contact.html [L]
+RewriteRule ^coupons/?$ coupons.html [L]
+
+RewriteRule ^blog/lo-fi-less-is-more/?$ blog-lo-fi-less-is-more.html [L]
+RewriteRule ^blog/word-of-mouth-commerce/?$ blog-word-of-mouth-commerce.html [L]
+RewriteRule ^blog/5-step-affiliate-playbook/?$ blog-5-step-affiliate-playbook.html [L]
+
+# /brand-slug/offer-code-slug → single-offer page (not under /blog/, /about/, …)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/(blog|about|contact|coupons)/ [NC]
+RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/?$ coupon.html [L]
+
+# /my-slug → internal rewrite to brand.html (browser URL unchanged; no ?brand= needed)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z0-9-]+)/?$ brand.html [L]
+</IfModule>

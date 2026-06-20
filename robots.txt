@@ -1,0 +1,5 @@
+# https://atmad.io
+User-agent: *
+Allow: /
+
+Sitemap: https://atmad.io/sitemap.xml

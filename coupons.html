@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>All coupon codes &amp; brands | ATMAD — global list, regional tags</title>
+  <meta name="description" content="Search every ATMAD coupon by brand and category. Fashion, food, travel, beauty, electronics — copy codes and open each store’s page. Offers tagged by market where relevant." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="canonical" href="https://atmad.io/coupons.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23111'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20fill='%23fff'%20font-size='15'%20font-family='system-ui,sans-serif'%20font-weight='800'%3EA%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ATMAD" />
+  <meta property="og:url" content="https://atmad.io/coupons.html" />
+  <meta property="og:title" content="All coupon codes &amp; brands | ATMAD" />
+  <meta property="og:description" content="Filter coupons by category and brand. Multiple codes per store, GCC country tags, and one-tap copy." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_AE" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="All coupons | ATMAD" />
+  <meta name="twitter:description" content="Browse and search verified codes from stores worldwide — with regional tags where applicable." />
+
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"All ATMAD coupon codes","url":"https://atmad.io/coupons.html","isPartOf":{"@type":"WebSite","name":"ATMAD","url":"https://atmad.io/"},"description":"Searchable list of discount codes and deals by brand and category."}
+  </script>
+
+  <link rel="stylesheet" href="/atmad.css?v=15" />
+</head>
+<body class="page-coupons">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-logo"><img src="/assets/brand/atmad-logo-header.svg" alt="ATMAD" width="1024" height="1024" decoding="async" /></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/" data-en="Home" data-ar="الرئيسية">Home</a>
+      <a href="/services.html" data-en="Services" data-ar="الخدمات">Services</a>
+      <a href="/about.html#customers" data-en="Customers" data-ar="العملاء">Customers</a>
+      <a href="/resources.html" data-en="Resources" data-ar="الموارد">Resources</a>
+      <a href="/coupons.html" class="is-active" data-en="Coupons" data-ar="الكوبونات">Coupons</a>
+      <a href="/contact.html" data-en="Contact us" data-ar="اتصل بنا">Contact us</a>
+    </nav>
+    <div class="site-header-actions">
+      <button type="button" class="lang-btn lang-btn-header" onclick="toggleLanguage()">العربية</button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero-simple">
+  <h1 data-en="All coupons" data-ar="كل الكوبونات">All coupons</h1>
+  <p class="page-hero-simple-lead"
+     data-en="Search by brand, filter by category, and open any card for its own page with copy and details."
+     data-ar="ابحث باسم المتجر، واختَر الفئة، وافتح أي بطاقة لعرض التفاصيل ونسخ الكود بسهولة. جميع العروض بصياغة واضحة ومناسبة للخليج.">Search by brand, filter by category, and open any card for its own page with copy and details.</p>
+</section>
+
+<section id="coupons">
+  <div class="coupons-toolbar">
+    <input type="search" id="brandSearch" class="brand-search-input" autocomplete="off" spellcheck="false" />
+    <div
+      class="category-filters"
+      id="categoryFilters"
+      role="toolbar"
+      aria-label="Filter offers by category"
+      data-aria-en="Filter offers by category"
+      data-aria-ar="تصفية العروض حسب الفئة"></div>
+  </div>
+
+  <div id="couponsSubSingle" class="coupons-subsection">
+    <h3 class="coupons-subsection-title"
+        data-en="Coupon deals"
+        data-ar="عروض الكوبونات">Coupon deals</h3>
+    <div class="grid" id="couponsGrid"></div>
+  </div>
+
+  <div id="couponsSubMulti" class="coupons-subsection">
+    <h3 class="coupons-subsection-title"
+        data-en="Stores with multiple coupon codes"
+        data-ar="متاجر لديها أكثر من كود خصم">Stores with multiple coupon codes</h3>
+    <div class="grid" id="couponsGridMulti"></div>
+  </div>
+</section>
+
+<footer class="site-footer-rich">
+  <div class="site-footer-rich__inner">
+    <div class="site-footer-rich__col">
+      <h3 data-en="Company" data-ar="الشركة">Company</h3>
+      <ul>
+        <li><a href="/about.html" data-en="About us" data-ar="من نحن">About us</a></li>
+        <li><a href="/contact.html" data-en="Contact us" data-ar="اتصل بنا">Contact us</a></li>
+        <li><a href="/contact.html" data-en="Careers" data-ar="الوظائف">Careers</a></li>
+      </ul>
+    </div>
+    <div class="site-footer-rich__col">
+      <h3 data-en="What we do" data-ar="ما نقدّمه">What we do</h3>
+      <ul>
+        <li><a href="/services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+        <li><a href="/coupons.html" data-en="ATMAD coupon codes" data-ar="أكواد خصم ATMAD">ATMAD coupon codes</a></li>
+        <li><a href="/resources.html" data-en="Resources &amp; stories" data-ar="الموارد والقصص">Resources &amp; stories</a></li>
+        <li><a href="/blog.html" data-en="Blog" data-ar="المدونة">Blog</a></li>
+      </ul>
+    </div>
+    <div class="site-footer-rich__col">
+      <h3 data-en="Trust" data-ar="الثقة">Trust</h3>
+      <ul>
+        <li><span data-en="Transparent attribution and reporting" data-ar="إسناد وتقارير شفافة">Transparent attribution and reporting</span></li>
+        <li><span data-en="Brand-safe partner ecosystem" data-ar="شركاء بيئة آمنة للعلامات">Brand-safe partner ecosystem</span></li>
+        <li><span data-en="Privacy-first data handling" data-ar="التعامل مع البيانات مع احترام الخصوصية">Privacy-first data handling</span></li>
+      </ul>
+    </div>
+    <div class="site-footer-rich__col">
+      <h3 data-en="Contact" data-ar="تواصل">Contact</h3>
+      <ul>
+        <li><a href="mailto:info@atmad.io">info@atmad.io</a></li>
+        <li><a href="tel:+971552499443" data-en="UAE phone" data-ar="هاتف الإمارات">+971 55 249 9443</a></li>
+      </ul>
+    </div>
+    <p class="site-footer-rich__legal">
+      <span data-en="© 2026 ATMAD — All rights reserved" data-ar="© ٢٠٢٦ ATMAD — جميع الحقوق محفوظة">© 2026 ATMAD — All rights reserved</span>
+    </p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/atmad-lang.js?v=1"></script>
+<script data-cfasync="false" src="/brand-logos.js?v=13"></script>
+<script data-cfasync="false" src="/coupons-data.js"></script>
+<script data-cfasync="false" src="/coupons-ar.js"></script>
+<script data-cfasync="false" src="/site-logic.js?v=11"></script>
+<script>
+  let currentLang = getAtmadPreferredLang();
+  applyAtmadLanguageUI(currentLang);
+  let activeCategoryId = "all";
+  let brandSearchQuery = "";
+  let allCoupons = [];
+
+  const FILTER_LABEL = { en: "Filter by category:", ar: "تصفية حسب الفئة:" };
+
+  const CATEGORY_CHIPS = [
+    { id: "all", en: "All", ar: "الكل" },
+    { id: "fashion", en: "Fashion", ar: "الأزياء" },
+    { id: "food", en: "Food", ar: "الطعام والتوصيل" },
+    { id: "travel", en: "Travel", ar: "السفر" },
+    { id: "beauty", en: "Beauty", ar: "الجمال" },
+    { id: "electronics", en: "Electronics", ar: "الإلكترونيات" },
+    { id: "motherbaby", en: "Mother & Baby", ar: "الأم والطفل" }
+  ];
+
+  function categoryLabel(id) {
+    const row = CATEGORY_CHIPS.find((x) => x.id === id);
+    if (!row) return id;
+    return currentLang === "ar" ? row.ar : row.en;
+  }
+
+  function refreshBrandSearchUi() {
+    const el = document.getElementById("brandSearch");
+    if (!el) return;
+    if (currentLang === "ar") {
+      el.placeholder = "ابحث عن اسم المتجر…";
+      el.setAttribute("aria-label", "البحث باسم المتجر");
+    } else {
+      el.placeholder = "Search by brand name…";
+      el.setAttribute("aria-label", "Search by brand name");
+    }
+  }
+
+  function refreshCategoryToolbarAria() {
+    const host = document.getElementById("categoryFilters");
+    if (!host) return;
+    const en = host.getAttribute("data-aria-en") || "Categories";
+    const ar = host.getAttribute("data-aria-ar") || "الفئات";
+    host.setAttribute("aria-label", currentLang === "ar" ? ar : en);
+  }
+
+  function couponMatchesBrandSearch(c, qNorm) {
+    if (!qNorm) return true;
+    const dispEn = collapseWs(brandTitleForDisplay(c.titleEn, "en")).toLowerCase();
+    const dispAr = collapseWs(brandTitleForDisplay(c.titleAr, "ar")).toLowerCase();
+    const tEn = collapseWs(c.titleEn).toLowerCase();
+    const tAr = collapseWs(c.titleAr).toLowerCase();
+    if (tEn.includes(qNorm) || tAr.includes(qNorm) || dispEn.includes(qNorm) || dispAr.includes(qNorm))
+      return true;
+    const kEn = normalizeBrandKey(c.titleEn).replace(/\s+/g, "");
+    const kAr = normalizeBrandKey(c.titleAr).replace(/\s+/g, "");
+    const qCompact = qNorm.replace(/\s+/g, "");
+    if (qCompact && (kEn.includes(qCompact) || kAr.includes(qCompact))) return true;
+    return false;
+  }
+
+  function renderCategoryFilters() {
+    const host = document.getElementById("categoryFilters");
+    if (!host) return;
+    host.innerHTML = "";
+
+    const lab = document.createElement("span");
+    lab.className = "category-filters-label";
+    lab.setAttribute("data-en", FILTER_LABEL.en);
+    lab.setAttribute("data-ar", FILTER_LABEL.ar);
+    lab.textContent = currentLang === "ar" ? FILTER_LABEL.ar : FILTER_LABEL.en;
+    host.appendChild(lab);
+
+    CATEGORY_CHIPS.forEach((row) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "filter-chip" + (activeCategoryId === row.id ? " is-active" : "");
+      b.textContent = currentLang === "ar" ? row.ar : row.en;
+      b.setAttribute("aria-pressed", activeCategoryId === row.id ? "true" : "false");
+      b.onclick = () => {
+        activeCategoryId = row.id;
+        renderCategoryFilters();
+        renderCoupons();
+      };
+      host.appendChild(b);
+    });
+  }
+
+  function sortCouponsForDisplay(arr) {
+    const loc = currentLang === "ar" ? "ar" : "en";
+    return arr.slice().sort((a, b) => {
+      const ta = collapseWs(
+        couponBrandTitleForDisplay(a, currentLang)
+      ).toLowerCase();
+      const tb = collapseWs(
+        couponBrandTitleForDisplay(b, currentLang)
+      ).toLowerCase();
+      if (ta !== tb) return ta.localeCompare(tb, loc);
+      return collapseWs(a.code).localeCompare(collapseWs(b.code), loc, { numeric: true });
+    });
+  }
+
+  function appendFullCouponCard(grid, c, opts) {
+    opts = opts || {};
+    const showBrandPageLink = !!opts.showBrandPageLink;
+    const brandSlug = opts.brandSlug || brandSlugForCoupon(c);
+
+    const card = document.createElement("div");
+    card.className = "coupon coupon-card";
+    card.setAttribute("lang", currentLang === "ar" ? "ar" : "en");
+
+    const title = couponBrandTitleForDisplay(c, currentLang);
+    const hit = document.createElement("a");
+    hit.className = "coupon-card-hit";
+    hit.href = couponOfferDetailPath(c);
+    hit.setAttribute(
+      "aria-label",
+      currentLang === "ar"
+        ? "عرض صفحة هذا العرض — " + title + " (" + String(c.code || "").trim() + ")"
+        : "Open this offer’s page — " + title + " (" + String(c.code || "").trim() + ")"
+    );
+
+    const { desc, discount, meta } = couponFieldsForDisplay(c, currentLang);
+    const copyLabel = currentLang === "ar" ? "نسخ" : "Copy";
+    const catShown = c._category === "other"
+      ? (currentLang === "ar" ? "عام" : "General")
+      : categoryLabel(c._category);
+
+    const linkUrls = urlsForCoupon(c, currentLang);
+
+    const primary = pickPrimaryOfferText(desc, discount, c.code);
+    const tagline = secondaryOfferLine(desc, discount, c.code);
+    let bodyHtml = formatOfferBlockHtml(primary);
+    if (codeMatchesField(primary, c.code)) bodyHtml = "";
+
+    const domain = resolveCouponBrandDomain(c);
+    const initials = brandInitials(title);
+
+    const top = document.createElement("div");
+    top.className = "coupon-top";
+
+    const visual = document.createElement("div");
+    visual.className = "coupon-brand-visual";
+
+    const fallback = document.createElement("div");
+    fallback.className = "coupon-brand-fallback";
+    fallback.textContent = initials;
+    fallback.setAttribute("aria-hidden", "true");
+
+    if (domain) {
+      const img = document.createElement("img");
+      img.className = "coupon-brand-logo";
+      img.alt = "";
+      img.width = 64;
+      img.height = 64;
+      img.loading = "lazy";
+      img.decoding = "async";
+      bindBrandLogoWithFallback(img, domain, () => {
+        img.classList.add("is-hidden");
+        fallback.classList.add("is-visible");
+      });
+      visual.appendChild(img);
+    } else {
+      fallback.classList.add("is-visible");
+    }
+    visual.appendChild(fallback);
+
+    const head = document.createElement("div");
+    head.className = "coupon-head";
+    const badges = document.createElement("div");
+    badges.className = "coupon-badges-row";
+    const catSpan = document.createElement("span");
+    catSpan.className = "coupon-cat";
+    catSpan.textContent = catShown;
+    badges.appendChild(catSpan);
+    const tags = c._countryTags || [];
+    for (let ti = 0; ti < tags.length; ti++) {
+      const tg = document.createElement("span");
+      tg.className = "country-tag";
+      tg.textContent = formatCountryTagLabel(tags[ti]);
+      badges.appendChild(tg);
+    }
+    head.appendChild(badges);
+    const titleRow = document.createElement("div");
+    titleRow.className = "coupon-title-row";
+    const h3 = document.createElement("h3");
+    h3.textContent = title;
+    titleRow.appendChild(h3);
+    if (linkUrls.length) {
+      const linkWrap = document.createElement("div");
+      linkWrap.className = "coupon-title-links";
+      const openLbl = currentLang === "ar" ? "فتح رابط العرض" : "Open offer link";
+      for (let ui = 0; ui < linkUrls.length; ui++) {
+        const a = document.createElement("a");
+        a.href = linkUrls[ui];
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.className = "coupon-external-link";
+        a.setAttribute("aria-label", openLbl + (linkUrls.length > 1 ? " (" + (ui + 1) + ")" : ""));
+        a.appendChild(externalLinkIcon());
+        linkWrap.appendChild(a);
+      }
+      titleRow.appendChild(linkWrap);
+    }
+    head.appendChild(titleRow);
+
+    if (showBrandPageLink) {
+      const allLbl = currentLang === "ar" ? "كل أكواد هذا المتجر" : "All codes for this store";
+      const brandLink = document.createElement("a");
+      brandLink.className = "coupon-brand-page-link";
+      brandLink.href = "/" + encodeURIComponent(brandSlug);
+      brandLink.textContent = allLbl;
+      head.appendChild(brandLink);
+    }
+
+    top.appendChild(visual);
+    top.appendChild(head);
+
+    const content = document.createElement("div");
+    content.className = "coupon-content";
+    let contentHtml = "";
+    if (tagline) contentHtml += '<div class="coupon-tagline">' + esc(tagline) + "</div>";
+    if (bodyHtml) contentHtml += '<div class="coupon-body">' + bodyHtml + "</div>";
+    let metaRemain = meta && meta !== "—" ? stripUrlsFromMetaText(meta) : "";
+    if (metaRemain) contentHtml += '<span class="coupon-meta">' + esc(metaRemain) + "</span>";
+    content.innerHTML = contentHtml;
+
+    const foot = document.createElement("div");
+    foot.className = "coupon-code-foot";
+    const sec = document.createElement("div");
+    sec.className = "coupon-code-section";
+    const row = document.createElement("div");
+    row.className = "code-row";
+    row.setAttribute("dir", "ltr");
+    const codeDiv = document.createElement("div");
+    codeDiv.className = "code";
+    codeDiv.setAttribute("dir", "ltr");
+    const oneCode =
+      c.code && String(c.code).trim() ? String(c.code).trim() : "—";
+    codeDiv.textContent = oneCode;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copy-btn";
+    btn.textContent = copyLabel;
+    btn.addEventListener("click", () => copyCode(oneCode));
+    row.appendChild(codeDiv);
+    row.appendChild(btn);
+    sec.appendChild(row);
+    foot.appendChild(sec);
+
+    card.appendChild(hit);
+    card.appendChild(top);
+    card.appendChild(content);
+    card.appendChild(foot);
+
+    grid.appendChild(card);
+  }
+
+  function renderCoupons() {
+    const gridSingle = document.getElementById("couponsGrid");
+    const gridMulti = document.getElementById("couponsGridMulti");
+    const wrapSingle = document.getElementById("couponsSubSingle");
+    const wrapMulti = document.getElementById("couponsSubMulti");
+    if (!gridSingle || !gridMulti) return;
+
+    gridSingle.innerHTML = "";
+    gridMulti.innerHTML = "";
+
+    const byCategory = allCoupons.filter(
+      (c) => activeCategoryId === "all" || c._category === activeCategoryId
+    );
+    const qNorm = collapseWs(brandSearchQuery).toLowerCase();
+    const brandGroups = groupCouponsByBrandSlug(byCategory);
+
+    const multiSlugSet = new Set();
+    for (let gi = 0; gi < brandGroups.length; gi++) {
+      if (brandGroups[gi].items.length > 1) multiSlugSet.add(brandGroups[gi].slug);
+    }
+
+    const singles = [];
+    const multis = [];
+    for (let i = 0; i < byCategory.length; i++) {
+      const c = byCategory[i];
+      if (!couponMatchesBrandSearch(c, qNorm)) continue;
+      const slug = brandSlugForCoupon(c);
+      if (multiSlugSet.has(slug)) multis.push(c);
+      else singles.push(c);
+    }
+
+    const sortedSingles = sortCouponsForDisplay(singles);
+    const sortedMultis = sortCouponsForDisplay(multis);
+
+    sortedSingles.forEach((c) => appendFullCouponCard(gridSingle, c));
+    sortedMultis.forEach((c) =>
+      appendFullCouponCard(gridMulti, c, { showBrandPageLink: true, brandSlug: brandSlugForCoupon(c) })
+    );
+
+    const emptyMessage = () => {
+      if (qNorm && byCategory.length) {
+        return currentLang === "ar"
+          ? "لا يوجد متجر يطابق البحث. جرّب اسمًا آخر أو امسح حقل البحث."
+          : "No brand matches your search. Try a different name or clear the search.";
+      }
+      return currentLang === "ar"
+        ? "لا توجد عروض في هذه الفئة."
+        : "No coupons in this category.";
+    };
+
+    if (wrapSingle) {
+      const has = sortedSingles.length > 0;
+      wrapSingle.style.display = has ? "" : "none";
+      if (!has && sortedMultis.length === 0) {
+        wrapSingle.style.display = "";
+        const empty = document.createElement("p");
+        empty.className = "coupons-empty-msg";
+        empty.textContent = emptyMessage();
+        gridSingle.appendChild(empty);
+      }
+    }
+
+    if (wrapMulti) {
+      wrapMulti.style.display = sortedMultis.length > 0 ? "" : "none";
+    }
+  }
+
+  function toggleLanguage() {
+    currentLang = currentLang === "en" ? "ar" : "en";
+    setAtmadPreferredLang(currentLang);
+    applyAtmadLanguageUI(currentLang);
+    refreshBrandSearchUi();
+    refreshCategoryToolbarAria();
+    renderCategoryFilters();
+    renderCoupons();
+  }
+
+  async function copyCode(code) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(code);
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = code;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+      alert(currentLang === "ar" ? "تم نسخ الكود: " + code : "Code copied: " + code);
+    } catch (e) {
+      alert(currentLang === "ar" ? "تعذّر النسخ. انسخ يدوياً: " + code : "Could not copy. Copy manually: " + code);
+    }
+  }
+
+  allCoupons = buildAllCoupons();
+  if (!allCoupons.length && typeof window !== "undefined" && (!window.COUPON_SHEETS || !window.COUPON_SHEETS.length)) {
+    const sec = document.getElementById("coupons");
+    if (sec) {
+      const warn = document.createElement("p");
+      warn.className = "coupons-empty-msg";
+      warn.setAttribute("role", "alert");
+      warn.textContent =
+        "Coupon list could not load. Check that coupons-data.js is uploaded, then hard-refresh (or disable any script blockers).";
+      sec.insertBefore(warn, sec.firstChild);
+    }
+  }
+  refreshBrandSearchUi();
+  refreshCategoryToolbarAria();
+  const brandSearchEl = document.getElementById("brandSearch");
+  if (brandSearchEl) {
+    brandSearchEl.addEventListener("input", function () {
+      brandSearchQuery = brandSearchEl.value;
+      renderCoupons();
+    });
+  }
+  renderCategoryFilters();
+  renderCoupons();
+</script>
+
+</body>
+</html>

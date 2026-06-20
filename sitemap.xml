@@ -25,25 +25,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atmad.io/800flower</loc>
+    <loc>https://atmad.io/800-flowers</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/ace</loc>
+    <loc>https://atmad.io/ace-hardware</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://atmad.io/al-mithaly</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://atmad.io/allbirds</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/almaithaly</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -61,7 +61,7 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/asq-store</loc>
+    <loc>https://atmad.io/asq</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -187,7 +187,7 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/maje-uae</loc>
+    <loc>https://atmad.io/maje</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -259,13 +259,19 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://atmad.io/petzone-app</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://atmad.io/puma</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/reef-perfume</loc>
+    <loc>https://atmad.io/reef-perfumes</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -277,7 +283,7 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/sharkninja</loc>
+    <loc>https://atmad.io/shark-ninja</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -344,12 +350,6 @@
   </url>
   <url>
     <loc>https://atmad.io/underarmour</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/victoria-s-secret</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>

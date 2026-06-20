@@ -12,7 +12,7 @@
  *
  * Env: ATMAD_SHEET_ID, ATMAD_SHEET_GID (default gid=0)
  */
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync, existsSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { spawnSync } from "child_process";
@@ -20,12 +20,98 @@ import { spawnSync } from "child_process";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const OUT_PATH = join(ROOT, "coupons-data.js");
+const CPANEL_NAMES_PATH = join(__dirname, "cpanel-brand-names.json");
 
 const SHEET_ID =
   process.env.ATMAD_SHEET_ID || "1Vl31XJ3JVXW87IZq4NFI3mtO0LtXDXTvg8eo8lxWN5o";
 const SHEET_GID = process.env.ATMAD_SHEET_GID || "0";
 const CHECK_ONLY = process.argv.includes("--check");
 const INCLUDE_PAUSED = process.argv.includes("--include-paused");
+
+/** @type {{ entries: {titleEn:string,titleAr:string,code:string}[], byCode: Record<string,{titleEn:string,titleAr:string}>, byBrandKey: Record<string,{titleEn:string,titleAr:string}> } | null} */
+let cpanelNames = null;
+
+function loadCpanelNames() {
+  if (cpanelNames) return cpanelNames;
+  if (!existsSync(CPANEL_NAMES_PATH)) {
+    cpanelNames = { entries: [], byCode: {}, byBrandKey: {} };
+    return cpanelNames;
+  }
+  cpanelNames = JSON.parse(readFileSync(CPANEL_NAMES_PATH, "utf8"));
+  return cpanelNames;
+}
+
+function normBrand(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/\bllc\b\.?/gi, "")
+    .replace(/\./g, "")
+    .replace(/[^a-z0-9&\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function codeTokens(code) {
+  return String(code || "")
+    .split(/\s*\/\s*|\s*&\s+|\s+and\s+/i)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((s) => s.toLowerCase());
+}
+
+function codesOverlap(codeA, codeB) {
+  const a = new Set(codeTokens(codeA));
+  const b = codeTokens(codeB);
+  return b.some((t) => a.has(t));
+}
+
+function brandMatchScore(sheetBrand, cpanelTitle) {
+  const a = normBrand(sheetBrand);
+  const b = normBrand(cpanelTitle);
+  if (!a || !b) return 0;
+  if (a === b) return 100;
+  if (a.includes(b) || b.includes(a)) return 80;
+  const aWords = new Set(a.split(" ").filter(Boolean));
+  let shared = 0;
+  for (const w of b.split(" ")) if (aWords.has(w)) shared++;
+  return shared * 15;
+}
+
+/** Prefer cPanel display names (titleEn/titleAr) when we can match by code or brand. */
+function resolveCpanelDisplay(sheetBrand, code) {
+  const names = loadCpanelNames();
+  const sheet = trimCell(sheetBrand);
+  const codeStr = trimCell(code);
+
+  let best = null;
+  let bestScore = -1;
+  for (const entry of names.entries) {
+    if (!codesOverlap(entry.code, codeStr)) continue;
+    const score = brandMatchScore(sheet, entry.titleEn) + 50;
+    if (score > bestScore) {
+      bestScore = score;
+      best = entry;
+    }
+  }
+  if (best) return { titleEn: best.titleEn, titleAr: best.titleAr };
+
+  for (const tok of codeTokens(codeStr)) {
+    if (names.byCode[tok]) return names.byCode[tok];
+  }
+
+  const bk = normBrand(sheet);
+  if (names.byBrandKey[bk]) return names.byBrandKey[bk];
+
+  return { titleEn: sheet, titleAr: sheet };
+}
+
+function applyCpanelDisplay(item, sheetBrand) {
+  const d = resolveCpanelDisplay(sheetBrand, item.code);
+  item.titleEn = d.titleEn;
+  item.titleAr = d.titleAr;
+  return item;
+}
 
 function csvUrl(gid) {
   return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=${gid}`;
@@ -215,16 +301,20 @@ function parseUnifiedSheet(rows) {
       countries,
       discount
     );
-    if (item) items.push(item);
+    if (item) {
+      applyCpanelDisplay(item, brand);
+      items.push(item);
+    }
 
     const b = trimCell(brand);
     const c = trimCell(code);
     const co = trimCell(countries);
     if (b && c && co) {
-      const key = `${b.toLowerCase()}|${c.toLowerCase()}|${co.toLowerCase()}`;
+      const display = resolveCpanelDisplay(b, c);
+      const key = `${display.titleEn.toLowerCase()}|${c.toLowerCase()}|${co.toLowerCase()}`;
       if (!seenCountry.has(key)) {
         seenCountry.add(key);
-        countryRows.push([b, c, co]);
+        countryRows.push([display.titleEn, c, co]);
       }
     }
   }
@@ -267,7 +357,8 @@ async function main() {
 
   console.log(
     `Parsed: ${items.length} active coupons, ${countryRows.length} country tag rows` +
-      (INCLUDE_PAUSED ? " (including paused)" : " (paused excluded)")
+      (INCLUDE_PAUSED ? " (including paused)" : " (paused excluded)") +
+      (existsSync(CPANEL_NAMES_PATH) ? " · cPanel names applied" : "")
   );
 
   if (CHECK_ONLY) {

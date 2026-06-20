@@ -1,0 +1,723 @@
+{
+  "_note": "Canonical display names from live cPanel export. Used by sync-coupons-from-sheet.mjs.",
+  "entries": [
+    {
+      "titleEn": "800 flowers",
+      "titleAr": "800 flowers",
+      "code": "MM93"
+    },
+    {
+      "titleEn": "Ace Hardware",
+      "titleAr": "إيس",
+      "code": "MPvGciD"
+    },
+    {
+      "titleEn": "Airalo",
+      "titleAr": "Airalo",
+      "code": "CR19"
+    },
+    {
+      "titleEn": "Allbirds",
+      "titleAr": "أولبيردز",
+      "code": "MM69"
+    },
+    {
+      "titleEn": "Al Mithaly",
+      "titleAr": "المثالي",
+      "code": "DD67"
+    },
+    {
+      "titleEn": "Almatar",
+      "titleAr": "Almatar",
+      "code": "D16"
+    },
+    {
+      "titleEn": "Beluar",
+      "titleAr": "Beluar",
+      "code": "S23"
+    },
+    {
+      "titleEn": "Bloomingdales",
+      "titleAr": "Bloomingdales",
+      "code": "C186"
+    },
+    {
+      "titleEn": "Dr Nutrition",
+      "titleAr": "Dr Nutrition",
+      "code": "DD124"
+    },
+    {
+      "titleEn": "IZIL Beauty",
+      "titleAr": "IZIL Beauty",
+      "code": "CUD10"
+    },
+    {
+      "titleEn": "Kenzwoman",
+      "titleAr": "Kenzwoman",
+      "code": "K18"
+    },
+    {
+      "titleEn": "Kiabi",
+      "titleAr": "Kiabi",
+      "code": "CAB4"
+    },
+    {
+      "titleEn": "Kiko Milano",
+      "titleAr": "Kiko Milano",
+      "code": "K36"
+    },
+    {
+      "titleEn": "Lego",
+      "titleAr": "Lego",
+      "code": "MM154"
+    },
+    {
+      "titleEn": "Level Shoes",
+      "titleAr": "Level Shoes",
+      "code": "KYF"
+    },
+    {
+      "titleEn": "Magrabi",
+      "titleAr": "Magrabi",
+      "code": "MN8"
+    },
+    {
+      "titleEn": "Maje",
+      "titleAr": "Maje",
+      "code": "ZX24"
+    },
+    {
+      "titleEn": "Max Fashion",
+      "titleAr": "Max Fashion",
+      "code": "GG0"
+    },
+    {
+      "titleEn": "Mumzworld",
+      "titleAr": "Mumzworld",
+      "code": "CR2"
+    },
+    {
+      "titleEn": "Namshi",
+      "titleAr": "Namshi",
+      "code": "POT39"
+    },
+    {
+      "titleEn": "NANA",
+      "titleAr": "NANA",
+      "code": "PT39"
+    },
+    {
+      "titleEn": "Noon GCC",
+      "titleAr": "Noon GCC",
+      "code": "CH12"
+    },
+    {
+      "titleEn": "Noon Minutes",
+      "titleAr": "Noon Minutes",
+      "code": "CH12"
+    },
+    {
+      "titleEn": "Nownow",
+      "titleAr": "Nownow",
+      "code": "NF10"
+    },
+    {
+      "titleEn": "Rasees",
+      "titleAr": "Rasees",
+      "code": "R126"
+    },
+    {
+      "titleEn": "Reef Perfumes",
+      "titleAr": "Reef Perfumes",
+      "code": "REE69"
+    },
+    {
+      "titleEn": "Shark Ninja",
+      "titleAr": "Shark Ninja",
+      "code": "SN76503"
+    },
+    {
+      "titleEn": "SKYO",
+      "titleAr": "SKYO",
+      "code": "CR30"
+    },
+    {
+      "titleEn": "Sporter",
+      "titleAr": "Sporter",
+      "code": "SP61"
+    },
+    {
+      "titleEn": "Squatwolf",
+      "titleAr": "Squatwolf",
+      "code": "RY15"
+    },
+    {
+      "titleEn": "Sun and Sand sports",
+      "titleAr": "Sun and Sand sports",
+      "code": "UKJ89"
+    },
+    {
+      "titleEn": "Swarovski",
+      "titleAr": "Swarovski",
+      "code": "CX139"
+    },
+    {
+      "titleEn": "Under Armour",
+      "titleAr": "Under Armour",
+      "code": "GT37"
+    },
+    {
+      "titleEn": "Underhance",
+      "titleAr": "Underhance",
+      "code": "UH1"
+    },
+    {
+      "titleEn": "Vogacloset",
+      "titleAr": "Vogacloset",
+      "code": "OPT5"
+    },
+    {
+      "titleEn": "Waya",
+      "titleAr": "Waya",
+      "code": "WA108"
+    },
+    {
+      "titleEn": "Delicut",
+      "titleAr": "Delicut",
+      "code": "DC8"
+    },
+    {
+      "titleEn": "ASQ",
+      "titleAr": "ASQ",
+      "code": "D37"
+    },
+    {
+      "titleEn": "Puma",
+      "titleAr": "Puma",
+      "code": "ONE"
+    },
+    {
+      "titleEn": "Al Dakheel Oud",
+      "titleAr": "Al Dakheel Oud",
+      "code": "CC6"
+    },
+    {
+      "titleEn": "Osma",
+      "titleAr": "Osma",
+      "code": "N71"
+    },
+    {
+      "titleEn": "Jetpac Global",
+      "titleAr": "Jetpac Global",
+      "code": "JP155"
+    },
+    {
+      "titleEn": "Samsung",
+      "titleAr": "Samsung",
+      "code": "AFM114"
+    },
+    {
+      "titleEn": "Blends",
+      "titleAr": "Blends",
+      "code": "ZOOM"
+    },
+    {
+      "titleEn": "Naseem",
+      "titleAr": "Naseem",
+      "code": "AA119"
+    },
+    {
+      "titleEn": "Jeeny",
+      "titleAr": "Jeeny",
+      "code": "AAH0"
+    },
+    {
+      "titleEn": "Nice",
+      "titleAr": "Nice",
+      "code": "D35"
+    },
+    {
+      "titleEn": "Paris Gallery",
+      "titleAr": "Paris Gallery",
+      "code": "BB53"
+    },
+    {
+      "titleEn": "Jomla",
+      "titleAr": "Jomla",
+      "code": "WE23"
+    },
+    {
+      "titleEn": "Petzone App",
+      "titleAr": "Petzone App",
+      "code": "PAI6"
+    },
+    {
+      "titleEn": "Ace Hardware",
+      "titleAr": "Ace Hardware",
+      "code": "MPvGciD"
+    },
+    {
+      "titleEn": "Abdul Samad Al Qurashi",
+      "titleAr": "Abdul Samad Al Qurashi",
+      "code": "D37"
+    },
+    {
+      "titleEn": "UnderArmour",
+      "titleAr": "UnderArmour",
+      "code": "GT37"
+    },
+    {
+      "titleEn": "Bath & Body Works",
+      "titleAr": "Bath & Body Works",
+      "code": "ADMIT10"
+    },
+    {
+      "titleEn": "Dabdoob",
+      "titleAr": "Dabdoob",
+      "code": "MM81"
+    },
+    {
+      "titleEn": "Noon Minutes",
+      "titleAr": "Noon Minutes",
+      "code": "NF10"
+    },
+    {
+      "titleEn": "Shark Ninja",
+      "titleAr": "Shark Ninja",
+      "code": "SN76503"
+    },
+    {
+      "titleEn": "Sun & Sand Sports",
+      "titleAr": "Sun & Sand Sports",
+      "code": "UKJ89"
+    }
+  ],
+  "byCode": {
+    "mm93": {
+      "titleEn": "800 flowers",
+      "titleAr": "800 flowers"
+    },
+    "mpvgcid": {
+      "titleEn": "Ace Hardware",
+      "titleAr": "إيس"
+    },
+    "cr19": {
+      "titleEn": "Airalo",
+      "titleAr": "Airalo"
+    },
+    "mm69": {
+      "titleEn": "Allbirds",
+      "titleAr": "أولبيردز"
+    },
+    "dd67": {
+      "titleEn": "Al Mithaly",
+      "titleAr": "المثالي"
+    },
+    "d16": {
+      "titleEn": "Almatar",
+      "titleAr": "Almatar"
+    },
+    "s23": {
+      "titleEn": "Beluar",
+      "titleAr": "Beluar"
+    },
+    "c186": {
+      "titleEn": "Bloomingdales",
+      "titleAr": "Bloomingdales"
+    },
+    "dd124": {
+      "titleEn": "Dr Nutrition",
+      "titleAr": "Dr Nutrition"
+    },
+    "cud10": {
+      "titleEn": "IZIL Beauty",
+      "titleAr": "IZIL Beauty"
+    },
+    "k18": {
+      "titleEn": "Kenzwoman",
+      "titleAr": "Kenzwoman"
+    },
+    "cab4": {
+      "titleEn": "Kiabi",
+      "titleAr": "Kiabi"
+    },
+    "k36": {
+      "titleEn": "Kiko Milano",
+      "titleAr": "Kiko Milano"
+    },
+    "mm154": {
+      "titleEn": "Lego",
+      "titleAr": "Lego"
+    },
+    "kyf": {
+      "titleEn": "Level Shoes",
+      "titleAr": "Level Shoes"
+    },
+    "mn8": {
+      "titleEn": "Magrabi",
+      "titleAr": "Magrabi"
+    },
+    "zx24": {
+      "titleEn": "Maje",
+      "titleAr": "Maje"
+    },
+    "gg0": {
+      "titleEn": "Max Fashion",
+      "titleAr": "Max Fashion"
+    },
+    "cr2": {
+      "titleEn": "Mumzworld",
+      "titleAr": "Mumzworld"
+    },
+    "pot39": {
+      "titleEn": "Namshi",
+      "titleAr": "Namshi"
+    },
+    "pt39": {
+      "titleEn": "NANA",
+      "titleAr": "NANA"
+    },
+    "ch12": {
+      "titleEn": "Noon GCC",
+      "titleAr": "Noon GCC"
+    },
+    "nf10": {
+      "titleEn": "Nownow",
+      "titleAr": "Nownow"
+    },
+    "r126": {
+      "titleEn": "Rasees",
+      "titleAr": "Rasees"
+    },
+    "ree69": {
+      "titleEn": "Reef Perfumes",
+      "titleAr": "Reef Perfumes"
+    },
+    "sn76503": {
+      "titleEn": "Shark Ninja",
+      "titleAr": "Shark Ninja"
+    },
+    "cr30": {
+      "titleEn": "SKYO",
+      "titleAr": "SKYO"
+    },
+    "sp61": {
+      "titleEn": "Sporter",
+      "titleAr": "Sporter"
+    },
+    "ry15": {
+      "titleEn": "Squatwolf",
+      "titleAr": "Squatwolf"
+    },
+    "ukj89": {
+      "titleEn": "Sun and Sand sports",
+      "titleAr": "Sun and Sand sports"
+    },
+    "cx139": {
+      "titleEn": "Swarovski",
+      "titleAr": "Swarovski"
+    },
+    "gt37": {
+      "titleEn": "Under Armour",
+      "titleAr": "Under Armour"
+    },
+    "uh1": {
+      "titleEn": "Underhance",
+      "titleAr": "Underhance"
+    },
+    "opt5": {
+      "titleEn": "Vogacloset",
+      "titleAr": "Vogacloset"
+    },
+    "wa108": {
+      "titleEn": "Waya",
+      "titleAr": "Waya"
+    },
+    "dc8": {
+      "titleEn": "Delicut",
+      "titleAr": "Delicut"
+    },
+    "d37": {
+      "titleEn": "ASQ",
+      "titleAr": "ASQ"
+    },
+    "one": {
+      "titleEn": "Puma",
+      "titleAr": "Puma"
+    },
+    "cc6": {
+      "titleEn": "Al Dakheel Oud",
+      "titleAr": "Al Dakheel Oud"
+    },
+    "n71": {
+      "titleEn": "Osma",
+      "titleAr": "Osma"
+    },
+    "jp155": {
+      "titleEn": "Jetpac Global",
+      "titleAr": "Jetpac Global"
+    },
+    "afm114": {
+      "titleEn": "Samsung",
+      "titleAr": "Samsung"
+    },
+    "zoom": {
+      "titleEn": "Blends",
+      "titleAr": "Blends"
+    },
+    "aa119": {
+      "titleEn": "Naseem",
+      "titleAr": "Naseem"
+    },
+    "aah0": {
+      "titleEn": "Jeeny",
+      "titleAr": "Jeeny"
+    },
+    "d35": {
+      "titleEn": "Nice",
+      "titleAr": "Nice"
+    },
+    "bb53": {
+      "titleEn": "Paris Gallery",
+      "titleAr": "Paris Gallery"
+    },
+    "we23": {
+      "titleEn": "Jomla",
+      "titleAr": "Jomla"
+    },
+    "pai6": {
+      "titleEn": "Petzone App",
+      "titleAr": "Petzone App"
+    },
+    "admit10": {
+      "titleEn": "Bath & Body Works",
+      "titleAr": "Bath & Body Works"
+    },
+    "mm81": {
+      "titleEn": "Dabdoob",
+      "titleAr": "Dabdoob"
+    }
+  },
+  "byBrandKey": {
+    "800 flowers": {
+      "titleEn": "800 flowers",
+      "titleAr": "800 flowers"
+    },
+    "ace hardware": {
+      "titleEn": "Ace Hardware",
+      "titleAr": "Ace Hardware"
+    },
+    "airalo": {
+      "titleEn": "Airalo",
+      "titleAr": "Airalo"
+    },
+    "allbirds": {
+      "titleEn": "Allbirds",
+      "titleAr": "أولبيردز"
+    },
+    "al mithaly": {
+      "titleEn": "Al Mithaly",
+      "titleAr": "المثالي"
+    },
+    "almatar": {
+      "titleEn": "Almatar",
+      "titleAr": "Almatar"
+    },
+    "beluar": {
+      "titleEn": "Beluar",
+      "titleAr": "Beluar"
+    },
+    "bloomingdales": {
+      "titleEn": "Bloomingdales",
+      "titleAr": "Bloomingdales"
+    },
+    "dr nutrition": {
+      "titleEn": "Dr Nutrition",
+      "titleAr": "Dr Nutrition"
+    },
+    "izil beauty": {
+      "titleEn": "IZIL Beauty",
+      "titleAr": "IZIL Beauty"
+    },
+    "kenzwoman": {
+      "titleEn": "Kenzwoman",
+      "titleAr": "Kenzwoman"
+    },
+    "kiabi": {
+      "titleEn": "Kiabi",
+      "titleAr": "Kiabi"
+    },
+    "kiko milano": {
+      "titleEn": "Kiko Milano",
+      "titleAr": "Kiko Milano"
+    },
+    "lego": {
+      "titleEn": "Lego",
+      "titleAr": "Lego"
+    },
+    "level shoes": {
+      "titleEn": "Level Shoes",
+      "titleAr": "Level Shoes"
+    },
+    "magrabi": {
+      "titleEn": "Magrabi",
+      "titleAr": "Magrabi"
+    },
+    "maje": {
+      "titleEn": "Maje",
+      "titleAr": "Maje"
+    },
+    "max fashion": {
+      "titleEn": "Max Fashion",
+      "titleAr": "Max Fashion"
+    },
+    "mumzworld": {
+      "titleEn": "Mumzworld",
+      "titleAr": "Mumzworld"
+    },
+    "namshi": {
+      "titleEn": "Namshi",
+      "titleAr": "Namshi"
+    },
+    "nana": {
+      "titleEn": "NANA",
+      "titleAr": "NANA"
+    },
+    "noon gcc": {
+      "titleEn": "Noon GCC",
+      "titleAr": "Noon GCC"
+    },
+    "noon minutes": {
+      "titleEn": "Noon Minutes",
+      "titleAr": "Noon Minutes"
+    },
+    "nownow": {
+      "titleEn": "Nownow",
+      "titleAr": "Nownow"
+    },
+    "rasees": {
+      "titleEn": "Rasees",
+      "titleAr": "Rasees"
+    },
+    "reef perfumes": {
+      "titleEn": "Reef Perfumes",
+      "titleAr": "Reef Perfumes"
+    },
+    "shark ninja": {
+      "titleEn": "Shark Ninja",
+      "titleAr": "Shark Ninja"
+    },
+    "skyo": {
+      "titleEn": "SKYO",
+      "titleAr": "SKYO"
+    },
+    "sporter": {
+      "titleEn": "Sporter",
+      "titleAr": "Sporter"
+    },
+    "squatwolf": {
+      "titleEn": "Squatwolf",
+      "titleAr": "Squatwolf"
+    },
+    "sun and sand sports": {
+      "titleEn": "Sun and Sand sports",
+      "titleAr": "Sun and Sand sports"
+    },
+    "swarovski": {
+      "titleEn": "Swarovski",
+      "titleAr": "Swarovski"
+    },
+    "under armour": {
+      "titleEn": "Under Armour",
+      "titleAr": "Under Armour"
+    },
+    "underhance": {
+      "titleEn": "Underhance",
+      "titleAr": "Underhance"
+    },
+    "vogacloset": {
+      "titleEn": "Vogacloset",
+      "titleAr": "Vogacloset"
+    },
+    "waya": {
+      "titleEn": "Waya",
+      "titleAr": "Waya"
+    },
+    "delicut": {
+      "titleEn": "Delicut",
+      "titleAr": "Delicut"
+    },
+    "asq": {
+      "titleEn": "ASQ",
+      "titleAr": "ASQ"
+    },
+    "puma": {
+      "titleEn": "Puma",
+      "titleAr": "Puma"
+    },
+    "al dakheel oud": {
+      "titleEn": "Al Dakheel Oud",
+      "titleAr": "Al Dakheel Oud"
+    },
+    "osma": {
+      "titleEn": "Osma",
+      "titleAr": "Osma"
+    },
+    "jetpac global": {
+      "titleEn": "Jetpac Global",
+      "titleAr": "Jetpac Global"
+    },
+    "samsung": {
+      "titleEn": "Samsung",
+      "titleAr": "Samsung"
+    },
+    "blends": {
+      "titleEn": "Blends",
+      "titleAr": "Blends"
+    },
+    "naseem": {
+      "titleEn": "Naseem",
+      "titleAr": "Naseem"
+    },
+    "jeeny": {
+      "titleEn": "Jeeny",
+      "titleAr": "Jeeny"
+    },
+    "nice": {
+      "titleEn": "Nice",
+      "titleAr": "Nice"
+    },
+    "paris gallery": {
+      "titleEn": "Paris Gallery",
+      "titleAr": "Paris Gallery"
+    },
+    "jomla": {
+      "titleEn": "Jomla",
+      "titleAr": "Jomla"
+    },
+    "petzone app": {
+      "titleEn": "Petzone App",
+      "titleAr": "Petzone App"
+    },
+    "abdul samad al qurashi": {
+      "titleEn": "Abdul Samad Al Qurashi",
+      "titleAr": "Abdul Samad Al Qurashi"
+    },
+    "underarmour": {
+      "titleEn": "UnderArmour",
+      "titleAr": "UnderArmour"
+    },
+    "bath & body works": {
+      "titleEn": "Bath & Body Works",
+      "titleAr": "Bath & Body Works"
+    },
+    "dabdoob": {
+      "titleEn": "Dabdoob",
+      "titleAr": "Dabdoob"
+    },
+    "sun & sand sports": {
+      "titleEn": "Sun & Sand Sports",
+      "titleAr": "Sun & Sand Sports"
+    }
+  }
+}

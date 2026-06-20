@@ -278,12 +278,16 @@ async function main() {
   writeFileSync(OUT_PATH, buildCouponsDataJs(countryRows, sheets), "utf8");
   console.log("Wrote", OUT_PATH);
 
-  const sitemap = spawnSync(
-    "node",
-    [join(ROOT, "scripts/generate-sitemap.mjs")],
-    { stdio: "inherit", cwd: ROOT }
-  );
-  if (sitemap.status !== 0) process.exit(sitemap.status ?? 1);
+  for (const script of [
+    "scripts/generate-sitemap.mjs",
+    "tools/generate-coupons-ar.cjs",
+  ]) {
+    const r = spawnSync("node", [join(ROOT, script)], {
+      stdio: "inherit",
+      cwd: ROOT,
+    });
+    if (r.status !== 0) process.exit(r.status ?? 1);
+  }
 }
 
 main().catch((err) => {

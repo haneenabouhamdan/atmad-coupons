@@ -1,14 +1,7 @@
-# Regenerate coupons-data.js from the Google Sheet on a schedule.
-# After this runs, deploy updated files to cPanel (FTP/git pull) so atmad.io picks them up.
-#
-# Prerequisite: spreadsheet shared as "Anyone with the link → Viewer"
-# https://docs.google.com/spreadsheets/d/1Vl31XJ3JVXW87IZq4NFI3mtO0LtXDXTvg8eo8lxWN5o/edit
-
 name: Sync coupons from Google Sheet
 
 on:
   schedule:
-    # Every 6 hours (UTC). Adjust as needed.
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
@@ -25,12 +18,12 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Pull sheet → coupons-data.js
+      - name: Pull sheet into coupons-data.js
         run: node scripts/sync-coupons-from-sheet.mjs
 
       - name: Commit and push if changed
         run: |
-          git add coupons-data.js sitemap.xml
+          git add coupons-data.js coupons-ar.js sitemap.xml
           if git diff --staged --quiet; then
             echo "No coupon changes."
             exit 0

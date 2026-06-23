@@ -49,12 +49,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/al-majed-for-oud</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://atmad.io/al-mithaly</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -98,12 +92,6 @@
   </url>
   <url>
     <loc>https://atmad.io/bloomingdales</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/braun-de</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -193,12 +181,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/expedia-ar</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://atmad.io/ezhire</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -236,18 +218,6 @@
   </url>
   <url>
     <loc>https://atmad.io/homzmart</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/iflytek</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/iherb</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -301,6 +271,12 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://atmad.io/l-occitane</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://atmad.io/lego</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -314,12 +290,6 @@
   </url>
   <url>
     <loc>https://atmad.io/lg</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/loop-earplugs</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -409,19 +379,7 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/pangaia-global</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://atmad.io/paris-gallery</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/patpat</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -457,13 +415,13 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/reef-perfumes</loc>
+    <loc>https://atmad.io/rb-fashion</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/rove-hotels</loc>
+    <loc>https://atmad.io/reef-perfumes</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -476,12 +434,6 @@
   </url>
   <url>
     <loc>https://atmad.io/sandro</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/satellai-pet-tech-affiliate-program</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -529,12 +481,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://atmad.io/strawberrynet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://atmad.io/sun-sand-sports</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -542,6 +488,12 @@
   </url>
   <url>
     <loc>https://atmad.io/swarovski</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://atmad.io/the-beauty-secrets</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -596,12 +548,6 @@
   </url>
   <url>
     <loc>https://atmad.io/waya</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://atmad.io/wheeltop-affiliate-program</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>

@@ -246,5 +246,7 @@ window.ATMAD_AR_OFFER = {
  "fbb9a855": "https://www.nike.ae/",
  "2b2c45": "United Arab Emirates · https://www.nike.ae/",
  "8b6dc40b": "https://www.beautyamora.com.au/",
- "d5b3ec0": "Australia · https://www.beautyamora.com.au/"
+ "d5b3ec0": "Australia · https://www.beautyamora.com.au/",
+ "dc301350": "https://www.sheglam.com/",
+ "1dc0797b": "United Arab Emirates · https://www.beautyamora.com.au/"
 };
